@@ -1,0 +1,14 @@
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowRight, MessageCircle, Users } from "lucide-react"
+import { teamProfiles } from "@/components/team/teamData"
+import styles from "./page.module.css"
+
+export default function TeamPage() {
+  return <main className={styles.page}>
+    <section className={styles.hero}><Image src="/image/about/shop.webp" alt="Dantown Electrical team and solutions centre" fill priority sizes="100vw" className={styles.heroImage} /><div className={styles.heroShade} /><div className={styles.heroContent}><span className={styles.eyebrow}><Users size={15} /> Dantown people & structure</span><h1>Good power is built by <em>good people.</em></h1><p>Meet the seven parts of the Dantown team, from leadership and planning to technical delivery, supply, and customer support.</p><div className={styles.heroActions}><Link href="/contact" className={styles.primaryButton}>Talk to the team <ArrowRight size={16} /></Link><a href="https://wa.me/254745917655" className={styles.secondaryButton}><MessageCircle size={16} /> WhatsApp us</a></div></div><span className={styles.heroCount}>07 <small>team functions</small></span></section>
+    <section className={styles.intro}><div><span className={styles.kicker}>One connected team</span><h2>Everyone has a role in making power feel <em>reliable.</em></h2></div><p>We keep this page focused on roles and responsibilities until individual staff names and portraits are approved for publication. Each profile opens a closer view of how that part of the team supports customers.</p></section>
+    <section className={styles.teamSection}><div className={styles.teamGrid}>{teamProfiles.map((profile) => <article className={`${styles.memberCard} ${styles[profile.accent]}`} key={profile.slug}><div className={styles.memberImage}><Image src={profile.image} alt={profile.title} fill sizes="(max-width: 680px) 100vw, (max-width: 1000px) 50vw, 33vw" /><span>{profile.number}</span></div><div className={styles.memberBody}><span className={styles.memberLabel}>{profile.label}</span><h3>{profile.title}</h3><p>{profile.summary}</p><ul>{profile.responsibilities.slice(0, 3).map((item) => <li key={item}>{item}</li>)}</ul><Link href={`/team/${profile.slug}`} className={styles.profileLink}>View role profile <ArrowRight size={16} /></Link></div></article>)}</div></section>
+    <section className={styles.contactPanel}><div><span className={styles.kicker}>Need the right person?</span><h2>Start with the official Dantown team.</h2><p>Tell us what you are planning and we will connect your enquiry to the right role.</p></div><Link href="/request-quote" className={styles.primaryButton}>Start a conversation <ArrowRight size={16} /></Link></section>
+  </main>
+}

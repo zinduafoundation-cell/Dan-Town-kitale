@@ -1,0 +1,9 @@
+node_modules/
+.next/
+*.tsbuildinfo
+.env.local
+.vscode/npm-inspect/
+.next/
+node_modules/
+.env
+.env.local

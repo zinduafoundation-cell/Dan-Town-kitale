@@ -1,0 +1,39 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "scrollbar-color",
+          "scrollbar-width",
+          "scrollbar-width: thin",
+          "-webkit-overflow-scrolling",
+          "user-select",
+          "-webkit-user-drag",
+          "min-height: auto",
+          "backdrop-filter",
+          "backdrop-filter",
+          "backdrop-filter",
+          "mask-image",
+          "mask-image",
+          "mask-image",
+          "mask-image",
+          "mask-image",
+          "mask-image",
+          "mask-image"
+        ]
+      }
+    ]
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not chrome <= 109",
+    "not edge <= 151",
+    "not opera <= 131",
+    "not samsung <= 30"
+  ]
+}

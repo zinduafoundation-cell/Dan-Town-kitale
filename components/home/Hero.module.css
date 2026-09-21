@@ -1,0 +1,200 @@
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 760px;
+  align-items: center;
+  overflow: hidden;
+  background: #050505;
+}
+
+.background,
+.grid,
+.heroLight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.background {
+  background-image: linear-gradient(90deg, rgba(5, 5, 5, 0.96) 8%, rgba(5, 5, 5, 0.78) 46%, rgba(5, 5, 5, 0.32) 100%), url("/image/home/electrical.webp");
+  background-position: center, center right;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.grid {
+  opacity: 0.09;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.4) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: linear-gradient(to right, black, transparent 85%);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 40px, 1400px);
+  margin: 0 auto;
+  padding: 150px 0 80px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #ff9d00;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.badge span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff9d00;
+  box-shadow: 0 0 16px rgba(255, 157, 0, 0.7);
+}
+
+.content h1 {
+  max-width: 850px;
+  margin: 24px 0;
+  color: #fff;
+  font-size: clamp(58px, 10vw, 132px);
+  font-weight: 900;
+  line-height: 0.86;
+  letter-spacing: -5px;
+}
+
+.content h1 strong {
+  color: #ff9d00;
+}
+
+.content p {
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font-weight: 800;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.primary {
+  background: #ff9d00;
+  color: #050505;
+}
+
+.secondary {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.primary:hover,
+.secondary:hover {
+  transform: translateY(-2px);
+}
+
+.secondary:hover {
+  border-color: #ff9d00;
+  color: #ff9d00;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 760px;
+  gap: 1px;
+  margin-top: 84px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.stats > div {
+  display: grid;
+  gap: 5px;
+  padding: 18px;
+  background: rgba(5, 5, 5, 0.82);
+}
+
+.stats strong {
+  color: #ff9d00;
+  font-size: 24px;
+}
+
+.stats span {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.heroLight {
+  inset: auto -15% -45% auto;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: rgba(255, 157, 0, 0.08);
+  filter: blur(120px);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 700px;
+  }
+
+  .content {
+    width: min(100% - 28px, 1400px);
+    padding-top: 130px;
+  }
+
+  .content h1 {
+    font-size: clamp(52px, 15vw, 88px);
+    letter-spacing: -3px;
+  }
+
+  .content p {
+    font-size: 16px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primary,
+  .secondary {
+    justify-content: center;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 52px;
+  }
+
+  .background {
+    background-position: center, 68% center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary,
+  .secondary {
+    transition: none;
+  }
+}
